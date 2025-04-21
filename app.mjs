@@ -4,6 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import dotenv from 'dotenv';
+import { ObjectId } from 'mongodb';
 dotenv.config(); // Cargar variables de entorno desde el archivo .env
 const uri = process.env.MONGO_URI; // URI de conexión a MongoDB Atlas
 const db = process.env.DATABASE_NAME;
@@ -14,8 +15,11 @@ app.use(express.json()); // Middleware para parsear el cuerpo de las solicitudes
 
 const port = process.env.PORT || 3000;
 
-const allowedOrigins = ['http://localhost:4200', 'https://fabianmaes.github.io/cihuatl-michin']; // Lista de orígenes permitidos
-import { ObjectId } from 'mongodb';
+const allowedOrigins = [ // Lista de orígenes permitidos
+  'http://localhost:4200',
+  'https://fabianmaes.github.io',
+  'https://fabianmaes.github.io/cihuatl-michin'
+]; 
 
 
 app.use(cors({
