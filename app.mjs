@@ -193,7 +193,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.get("/", (res) => {
+app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
