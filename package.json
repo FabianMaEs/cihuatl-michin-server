@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --delay 3 app.mjs"
+    "start": "node app.mjs",
+    "dev": "nodemon --delay 3 app.mjs"
   },
   "keywords": [],
   "author": "",
