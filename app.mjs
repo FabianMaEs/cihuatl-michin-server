@@ -163,10 +163,12 @@ app.post("/like/:id/:like", async (req, res) => {
 });
 
 app.post("/send-email", async (req, res) => {
-  const message = req.body.message;
-  const subject = req.body.subject;
-  const email = req.body.email;
-  const name = req.body.name;
+  const { message, subject, email, name } = req.body;
+
+  // Valida que esté presente el mensaje y el correo electrónico
+  if (!message || !email) {
+    return res.status(400).send("Faltan parámetros requeridos");
+  }
 
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
